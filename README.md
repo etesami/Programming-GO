@@ -5,6 +5,8 @@
   - [Adding a dependency](#adding-a-dependency)
   - [Upgrading dependencies](#upgrading-dependencies)
     - [Go Language Fundamentals](#go-language-fundamentals)
+      - [Variable Declaration](#variable-declaration)
+      - [Anonymous Function](#anonymous-function)
       - [Strcuts](#strcuts)
 
 
@@ -89,8 +91,44 @@ go mod tidy
 
 ### Go Language Fundamentals
 
+#### Variable Declaration
+```go
+var age int = 25
+// Type inference
+var age = 25
+age := 25
+fmt.Println("Age:", age)
+
+var name string = "John"
+// Type inference
+var name = "John"
+name := "John"
+fmt.Println("Name:", name)
+
+var (
+    age  = 25
+    name = "John"
+)
+
+var count int  // Zero value for int is 0
+var flag bool  // Zero value for bool is false
+var text string // Zero value for string is ""
+```
+
+#### Anonymous Function
+```go
+add := func(x, y int) int {
+    return x + y
+}
+
+// Using the anonymous function
+result := add(3, 5)
+fmt.Println(result) // Output: 8
+```
+
+
 #### Strcuts
-Look at the ex0 folder.
+Look at the the [struct example folder](./examples/ex-struct/).
 ```go
 type Person struct {
 	FirstName string
@@ -100,9 +138,9 @@ type Person struct {
 
 // declared as a value
 person1 := Person{
-		FirstName: "John",
-		Age:       30,
-	}
+    FirstName: "John",
+    Age:       30,
+}
 
 // declared as a pointer
 person2 := &Person{

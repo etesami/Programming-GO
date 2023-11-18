@@ -1,11 +1,13 @@
 # Go Libraries
 
 - [Go Libraries](#go-libraries)
-      - [Logs](#logs)
+      - [logr](#logr)
 
 
-#### go-logr
-[Ref v1.3.0 ](https://pkg.go.dev/github.com/go-logr/logr@v1.3.0)
+#### logr
+[Ref v1.3.0 ](https://pkg.go.dev/github.com/go-logr/logr@v1.3.0); 
+check out the [logr example folder](./examples-libraries/logr/).
+
 Go’s log package doesn’t have leveled logs, you have to manually add prefixes like debug, 
 info, warn, and error, yourself. Also, Go’s logger type doesn’t have a way to turn these 
 various levels on or off on a per package basis [source](https://dave.cheney.net/2015/11/05/lets-talk-about-logging).
