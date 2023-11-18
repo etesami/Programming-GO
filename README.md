@@ -153,3 +153,39 @@ fmt.Println("P2 Name:", (*person2).FirstName)
 // Alternatively, use Shorthand notation
 fmt.Println("P2 Name:", person2.LastName)
 ```
+
+#### Interface
+An interface is a type that specifies a set of methods signature. Interfaces in Go are particularly useful 
+when you want to define a function (e.g. `printArea`) that multiple types (e.g. `Circle`, `Rectangle`) must 
+adhere to. For example, a simple printer 
+application that can print information about different shapes without knowing the specific type of each shape.
+Look at the [exinterface folder](./examples/ex-interface/).
+```go
+type Circle struct {
+	Radius float64
+}
+type Rectangle struct {
+	Width  float64
+	Height float64
+}
+
+// Area calculates the area of the circle.
+func (c Circle) Area() float64 {
+	return 3.14 * c.Radius * c.Radius
+}
+// Area calculates the area of the rectangle.
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
+
+// We want a single function that prints the area of each shape
+// We need to define Shape as interface
+func printArea(s Shape) {
+	fmt.Printf("Area: %f\n", s.Area())
+}
+
+// Shape is an interface that defines a method for calculating the area.
+type Shape interface {
+	Area() float64
+}
+``` 
