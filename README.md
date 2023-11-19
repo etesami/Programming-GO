@@ -2,12 +2,13 @@
 
 - [Programming GO](#programming-go)
   - [Createing a new module](#createing-a-new-module)
-  - [Adding a dependency](#adding-a-dependency)
-  - [Upgrading dependencies](#upgrading-dependencies)
-    - [Go Language Fundamentals](#go-language-fundamentals)
-      - [Variable Declaration](#variable-declaration)
-      - [Anonymous Function](#anonymous-function)
-      - [Strcuts](#strcuts)
+    - [Adding a dependency](#adding-a-dependency)
+    - [Upgrading dependencies](#upgrading-dependencies)
+  - [Go Language Fundamentals](#go-language-fundamentals)
+    - [Variable Declaration](#variable-declaration)
+    - [Anonymous Function](#anonymous-function)
+    - [Strcuts](#strcuts)
+    - [Interface](#interface)
 
 
 Take a look at this short summary [here](https://go.dev/blog/using-go-modules), then follow the rest of this doc. You 
@@ -48,7 +49,7 @@ func TestHello(t *testing.T) {
 }
 ```
 
-To make a go module we would need to make this directory the rrot of a module:
+To make a go module we would need to make this directory the root of a module:
 
 ```bash
 go mod init example.com/hello
@@ -59,7 +60,7 @@ go test
 go build -o main main.go
 ```
 
-## Adding a dependency
+### Adding a dependency
 
 `hello.go`:
 ```go
@@ -75,7 +76,7 @@ func Hello() string {
 Now use `go get rsc.io/quote` to fetch the module and its dependencies. 
 List the main module and its dependencies by: `go list -m all`
 
-## Upgrading dependencies
+### Upgrading dependencies
 
 Running `go get <module>` will update the package. Sometimes this causes issues. Run `go test` afterwards to see if everything looks fine.
 
@@ -89,9 +90,9 @@ go get rsc.io/sampler@v1.3.1
 go mod tidy
 ```
 
-### Go Language Fundamentals
+## Go Language Fundamentals
 
-#### Variable Declaration
+### Variable Declaration
 ```go
 var age int = 25
 // Type inference
@@ -115,7 +116,7 @@ var flag bool  // Zero value for bool is false
 var text string // Zero value for string is ""
 ```
 
-#### Anonymous Function
+### Anonymous Function
 ```go
 add := func(x, y int) int {
     return x + y
@@ -127,8 +128,8 @@ fmt.Println(result) // Output: 8
 ```
 
 
-#### Strcuts
-Look at the the [struct example folder](./examples/ex-struct/).
+### Strcuts
+Look at the the [struct example](./examples/ex-struct/) folder.
 ```go
 type Person struct {
 	FirstName string
@@ -154,12 +155,12 @@ fmt.Println("P2 Name:", (*person2).FirstName)
 fmt.Println("P2 Name:", person2.LastName)
 ```
 
-#### Interface
+### Interface
 An interface is a type that specifies a set of methods signature. Interfaces in Go are particularly useful 
 when you want to define a function (e.g. `printArea`) that multiple types (e.g. `Circle`, `Rectangle`) must 
 adhere to. For example, a simple printer 
 application that can print information about different shapes without knowing the specific type of each shape.
-Look at the [exinterface folder](./examples/ex-interface/).
+Look at the [exinterface example](./examples/ex-interface/) folder.
 ```go
 type Circle struct {
 	Radius float64
