@@ -4,11 +4,14 @@
   - [Createing a new module](#createing-a-new-module)
     - [Adding a dependency](#adding-a-dependency)
     - [Upgrading dependencies](#upgrading-dependencies)
+  - [Go Project Layout](#go-project-layout)
   - [Go Language Fundamentals](#go-language-fundamentals)
     - [Variable Declaration](#variable-declaration)
     - [Anonymous Function](#anonymous-function)
     - [Strcuts](#strcuts)
     - [Interface](#interface)
+  - [Useful Libraries](#useful-libraries)
+    - [Cli](#cli)
 
 
 Take a look at this short summary [here](https://go.dev/blog/using-go-modules), then follow the rest of this doc. You 
@@ -103,6 +106,12 @@ go get rsc.io/sampler@v1.3.1
 # clean up the project from unused dependencies
 go mod tidy
 ```
+
+## Go Project Layout
+Take a look at this [page](https://github.com/golang-standards/project-layout).
+- `internal`: internal is a special directory dedicated to only the parent directory import. 
+That means only `github.com/org/app` or `github.com/org/app/internal/sibilings` can import 
+`github.com/org/app/internal/config` and no others.
 
 ## Go Language Fundamentals
 
