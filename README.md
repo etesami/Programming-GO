@@ -22,16 +22,29 @@ may also take a look at the [GO libraries](./go-libraries.md) doc.
 Start outside of $GOPATH/src direcotry:
 
 ```bash
-mkdir ~/mymodule && cd mymodule
-touch hello.go
+mkdir -p ~/mymodule/hello && cd mymodule
+touch hello/hello.go main.go
 ```
 
-and `hello.go`:
+and `hello/hello.go`:
 ```go
 package hello
 
 func Hello() string {
     return "Hello, world."
+}
+```
+
+`main.go`:
+```go
+package main
+
+import (
+    "myorg/myproject/hello"
+)
+
+func main() {
+    fmt.Println(hello.Hello())
 }
 ```
 
@@ -52,7 +65,8 @@ func TestHello(t *testing.T) {
 To make a go module we would need to make this directory the root of a module:
 
 ```bash
-go mod init example.com/hello
+# go mod init github.com/org/module
+go mod init myorg/myproject
 go mod tidy
 # then test the module
 go test
