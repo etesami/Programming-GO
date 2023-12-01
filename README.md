@@ -204,3 +204,7 @@ type Shape interface {
 	Area() float64
 }
 ``` 
+
+## Useful Libraries
+### Cli
+Take a look at the [cli example](./examples-libraries/cli/) to learn how to manage arguments.
