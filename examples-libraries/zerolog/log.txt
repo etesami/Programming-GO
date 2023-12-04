@@ -1,0 +1,5 @@
+{"level":"info","time":1701658903,"message":"Hello World!"}
+{"level":"debug","Scale":"833 cents","Interval":833.09,"time":1701658903,"message":"Fibonacci is everywhere"}
+{"level":"debug","Name":"Tom","time":1701658903}
+{"level":"info","time":1701658903,"message":"hello world"}
+{"foo":"bar","time":1701658903}
